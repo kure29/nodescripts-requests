@@ -1,0 +1,86 @@
+name: 推荐收录脚本 / Recommend a script
+description: 推荐一个值得收录到 NodeScripts 的 Linux 脚本或节点搭建脚本
+title: "[推荐] "
+labels: ["recommendation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢推荐！管理员会人工核对来源、许可证和命令后再收录，NodeScripts 不会运行或直接转载未核对的内容。
+
+        **Issue 是公开的，请不要填写密码、Token、私钥、Cookie 或服务器地址。**
+  - type: input
+    id: name
+    attributes:
+      label: 脚本名称
+      description: 例如 “Docker Engine 安装助手”
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: 来源链接
+      description: GitHub 仓库、官方文档或作者主页（https:// 开头）
+      placeholder: https://github.com/owner/repo
+    validations:
+      required: true
+  - type: textarea
+    id: purpose
+    attributes:
+      label: 用途
+      description: 这个脚本做什么、适合什么场景
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: 推荐分区
+      options:
+        - 普通脚本
+        - 节点搭建（代理、隧道等网络节点）
+        - 不确定
+    validations:
+      required: true
+  - type: checkboxes
+    id: systems
+    attributes:
+      label: 适用系统
+      options:
+        - label: Debian
+        - label: Ubuntu
+        - label: CentOS / RHEL / Rocky / Alma
+        - label: Alpine
+        - label: OpenWrt
+        - label: 通用 Linux
+        - label: 其他（在补充说明里写明）
+  - type: dropdown
+    id: root
+    attributes:
+      label: 是否需要 Root
+      options:
+        - 需要 Root
+        - 不需要（普通用户即可）
+        - 部分步骤需要
+        - 不确定
+    validations:
+      required: true
+  - type: textarea
+    id: command
+    attributes:
+      label: 运行命令（选填）
+      description: 官方文档给出的安装或运行命令；管理员仍会自行核对
+      render: shell
+  - type: textarea
+    id: notes
+    attributes:
+      label: 补充说明（选填）
+      description: 卸载方法、已知问题、许可证等
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: 确认
+      options:
+        - label: 我没有在本 Issue 中填写密码、Token、私钥、Cookie 或服务器地址等敏感信息
+          required: true
+        - label: 来源链接可以公开访问
+          required: true
